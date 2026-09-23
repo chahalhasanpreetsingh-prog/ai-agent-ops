@@ -3,7 +3,7 @@
 Notes on running LLM agents against real infrastructure: what I let them touch, how they are
 stopped, what they cost, and how I tell whether they actually worked.
 
-Everything here comes out of systems that run unattended on my homelab. The linked repos are the
+Everything here comes out of systems that run unattended in production on my self-hosted platform. The linked repos are the
 implementations; this is the reasoning behind them.
 
 ## 1. An agent is the last resort, not the first
@@ -45,10 +45,8 @@ was the active output device.
 ## 5. Give agents structured access, not shell access
 
 MCP is the difference between an assistant that can run commands and one that can call
-operations you defined, with arguments you validated and actions you chose to expose. Two of mine:
+operations you defined, with arguments you validated and actions you chose to expose. For example:
 
-* [saavn-mcp](https://github.com/chahalhasanpreetsingh-prog/saavn-mcp): one tool, one job, errors
-  returned as text an agent can relay
 * [linkedin-mcp-server](https://github.com/stickerdaniel/linkedin-mcp-server) fork: added the
   write tools (`create_post`, `like_post`), each gated behind an explicit confirm flag so an agent
   cannot post by accident
